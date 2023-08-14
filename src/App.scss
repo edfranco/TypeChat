@@ -21,10 +21,7 @@ body {
 }
 
 .message-window {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    height: 95%;
     .message-window-header {
         background: $tertiary-color;
         color: $primary-color;
@@ -40,11 +37,6 @@ body {
                 border-radius: 100%;
             }
         }
-    }
-    .messages-container {
-        overflow: scroll;
-        height: 80%;
-        padding: 0 2em;
     }
     .input-container {
         form {
@@ -69,6 +61,7 @@ body {
                 background: $secondary-color;
                 color: $primary-color;
                 text-align: center;
+                border: none;
             }
             .send-button:hover {
                 cursor: pointer;

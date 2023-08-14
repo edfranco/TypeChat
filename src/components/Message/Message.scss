@@ -1,12 +1,13 @@
 .messages-container {
-    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 1em;
-    overflow: scroll;
-
+    flex-flow: column nowrap;
+    overflow-y: auto;
+    height: 80%;
+    padding: 2em;
+    .message:first-child {
+        margin-top: auto !important;
+        /* use !important to prevent breakage from child margin settings */
+    }
     .message {
         margin: 1em 0;
         display: flex;
@@ -61,12 +62,10 @@
                     font-size: 0.5rem;
                     font-weight: bolder;
                 }
+                p:hover{
+                    cursor: pointer;
+                }
             }
         }
     }
-}
-
-.messages-container:hover {
-    border: 1px solid #ebebeb;
-    cursor: pointer;
 }

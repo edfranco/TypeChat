@@ -1,68 +1,74 @@
-import { Component } from "react";
+import { useState, useRef, useEffect } from "react";
 import Message from "../../components/Message/Message";
 import MessageHeader from "../../components/MessageHeader/MessageHeader";
 
 import getMessageTime from "../../functions/getMessageTime";
 import displayMessages from "../../functions/displayMessages";
 
-class MessagesContainer extends Component {
-  state = {
-    messagesArr: [],
-    message: "",
+function MessagesContainer(props) {
+  const [messagesArr, setMessagesArr] = useState([]);
+  const [message, setMessage] = useState("");
+
+  const bottom = useRef(null);
+
+  const scrollToBottom = () => {
+    bottom.current.scrollIntoView({ behavior: "smooth" });
   };
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+  const handleChange = (event) => {
+    setMessage(event.target.value);
   };
 
-  handleMessageSend = (event) => {
+  const handleMessageSend = (event) => {
     event.preventDefault();
-    this.setState({
-      messagesArr: [
-        ...this.state.messagesArr,
-        {
-          image: this.props.user.image,
-          author: `${this.props.user.firstName} ${this.props.user.lastName}`,
-          timeStamp: getMessageTime(),
-          body: this.state.message,
-        },
-      ],
-      message: "",
-    });
+    scrollToBottom();
+    setMessagesArr([
+      ...messagesArr,
+      {
+        image: props.user.image,
+        author: `${props.user.firstName} ${props.user.lastName}`,
+        timeStamp: getMessageTime(),
+        body: message,
+      },
+    ]);
+    setMessage("");
   };
 
-  render() {
-    return (
-      <div className="message-window">
-        <MessageHeader user={this.props.user}/>
-        <div className="messages-container">
-          <Message
-            author={`${this.props.user.firstName} ${this.props.user.lastName}`}
-            image={this.props.user.image}
-            body="This is the beginning of your conversation with yourself. You can draft messages here, write your notes, store any information you might feel the need to keep locked safe and away from nosy coworkers"
-          />
-          {displayMessages(this.state.messagesArr)}
-        </div>
-        <div className="input-container">
-          <form onSubmit={this.handleMessageSend}>
-            <input
-              placeholder="Message"
-              name="message"
-              value={this.state.message}
-              onChange={this.handleChange}
-            />
-            <button
-              type="submit"
-              className="send-button"
-              onClick={this.handleMessageSend}
-            >
-              Send
-            </button>
-          </form>
-        </div>
+  useEffect(() => {
+    scrollToBottom();
+  });
+
+  return (
+    <div className="message-window">
+      <MessageHeader user={props.user} />
+      <div className="messages-container">
+        <Message
+          author={`${props.user.firstName} ${props.user.lastName}`}
+          image={props.user.image}
+          body="This is the beginning of your conversation with yourself. You can draft messages here, write your notes, store any information you might feel the need to keep locked safe and away from nosy coworkers"
+        />
+        {displayMessages(messagesArr)}
+        <div ref={bottom} className="chat-bottom"></div>
       </div>
-    );
-  }
+      <div className="input-container">
+        <form onSubmit={handleMessageSend}>
+          <input
+            placeholder="Message"
+            name="message"
+            value={message}
+            onChange={handleChange}
+          />
+          <button
+            type="submit"
+            className="send-button"
+            onClick={handleMessageSend}
+          >
+            Send
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 }
 
 export default MessagesContainer;

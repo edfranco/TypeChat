@@ -1,7 +1,9 @@
 import { Component } from 'react';
 import MessagesContainer from './containers/MessagesContainer/MessagesContainer';
 import Landing from './containers/Landing/Landing';
+
 import './App.scss';
+import profilePic from './files/default-profile-image.png';
 
 class App extends Component {
   state = {
@@ -10,6 +12,11 @@ class App extends Component {
     image: '',
     isInstantiated: false
   }
+
+  componentDidMount() {
+    this.setState({image: profilePic})
+  }
+
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   }

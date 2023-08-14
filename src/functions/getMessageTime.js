@@ -5,7 +5,7 @@ const getMessageTime = () => {
     let isAfternoon = Boolean;
 
     if(minutes.toString().length < 2) {
-        minutes = `${0}minutes`
+        minutes = `${0}${minutes}`
     }
 
     if(hour > '12') {

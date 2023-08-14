@@ -30,21 +30,21 @@ function Message(props) {
   };
 
   return (
-    <div className="message">
+    <div className="message" data-testid="message">
       <div className="message-content">
-        <div className="author-image-container">
+        <div className="author-image-container" data-testid="message-image">
           <img src={props.image} />
         </div>
         <div className="message-text">
           <div className="message-info">
-            <div className="message-author-name">
+            <div className="message-author-name" data-testid="message-author">
               <p>{props.author}</p>
             </div>
             <div className="message-time-stamp">
-              <p>{props.timeStamp}</p>
+              <p data-testid="message-time">{props.timeStamp}</p>
             </div>
           </div>
-          <div className="message-content">
+          <div className="message-content" data-testid="message-body">
             <p>{props.body}</p>
           </div>
           <div className="thread-info">
