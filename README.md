@@ -1,5 +1,4 @@
 # TypeChat
-![screenshot of typechat chat window](https://imgur.com/mKxXyZW)
 This is a serverless chat client built using React.js and styled using Sass. All data is stored in the app's state, not a database.
 
 On app initialization, the user will be asked to input their name and an image URL to create a user profile. Then, you will see a chat window where you can talk to yourself.
