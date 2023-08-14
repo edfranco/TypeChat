@@ -3,7 +3,7 @@ import './Landing.scss';
 function Landing(props) {
   return (
     <div className="landing">
-      <h1>Font<span style={{ color: "#FE243D" }}>Chats</span></h1>
+      <h1>Type<span style={{ color: "#FE243D" }}>Chat</span></h1>
       <form onSubmit={props.handleSubmit}>
         <input
           type="text"
