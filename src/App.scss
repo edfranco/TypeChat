@@ -70,6 +70,10 @@ body {
                 color: $primary-color;
                 text-align: center;
             }
+            .send-button:hover {
+                cursor: pointer;
+                background: #3f3639;
+            }
         }
     }
 }
