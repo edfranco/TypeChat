@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react';
+import MessagesContainer from './containers/MessagesContainer/MessagesContainer';
+import Landing from './containers/Landing/Landing';
+import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    firstName: '',
+    lastName:'',
+    image: '',
+    isInstantiated: false
+  }
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.setState({ isInstantiated: true })
+  }
+
+  render() {
+    return (
+      <div className='app'>
+        {
+        this.state.isInstantiated 
+        ? <MessagesContainer user={this.state}/> 
+        : <Landing 
+            firstName={this.state.firstName}
+            lastName={this.state.lastName}
+            image={this.state.image}
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+          />
+        }
+      </div>
+    );
+  }
 }
 
 export default App;

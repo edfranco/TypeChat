@@ -1,0 +1,33 @@
+.landing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    form {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 1em;
+        input {
+            height: 2.5em;
+            width: 17em;
+            border: 0.13rem solid #acacac;
+            border-radius: 1em;
+            margin-bottom: 1em;
+            padding: 0 0.8rem;
+        }
+        .button {
+            font-size: 1em;
+            font-weight: 650;
+            width: 14em;
+            height: 2em;
+            border-radius: 1em;
+            background: #141011;
+            color: #fff;
+            text-align: center;
+        }
+    }
+}

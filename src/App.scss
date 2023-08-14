@@ -1,0 +1,75 @@
+$primary-color: #fff;
+$secondary-color: #141011;
+$tertiary-color: #FE243D;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: $primary-color;
+    color: $secondary-color;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.app {
+    height: 100vh;
+}
+
+.message-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    .message-window-header {
+        background: $tertiary-color;
+        color: $primary-color;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 3em;
+        .recipient-image {
+            max-width: 50px;
+            img {
+                width: auto;
+                height: 10vh;
+                border-radius: 100%;
+            }
+        }
+    }
+    .messages-container {
+        overflow: scroll;
+        height: 80%;
+        padding: 0 2em;
+    }
+    .input-container {
+        form {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 1em;
+            input {
+                flex: 3;
+                height: 2.5em;
+                border: 0.13rem solid #acacac;
+                border-radius: 1em;
+                margin-right: 1em;
+                padding: 0 0.8rem;
+            }
+            .send-button {
+                flex: 1;
+                padding: 0.5em;
+                border-radius: 1em;
+                background: $secondary-color;
+                color: $primary-color;
+                text-align: center;
+            }
+        }
+    }
+}
