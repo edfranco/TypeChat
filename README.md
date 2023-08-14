@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# TypeChat
+This is a serverless chat client built using React.js and styled using Sass. All data is stored into the app's state not a database.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+On app initiliazation the user will be asked to input their name and an image url to create a user profile. Then you will see a chat window where you can talk to yourself to your heart's content
 
-## Available Scripts
+In terms of UX/UI this app was built with the assumption our users will want to send messages both via click and pressing the "return" key.
+Additionally we have threads as children of each message. If you reply to a message it will create a new thread. Once you create the thread you will be able to view the threads chat history. You can also see the thread length (amount of messages in said thread) for each message if it contains a thread.
 
-In the project directory, you can run:
+To start this program you will want to run the following commands in your terminal
+```
+git clone git@github.com:edfranco/TypeChat.git
+cd TypeChat
+npm i
+npm start
+```
 
-### `npm start`
+The commands will clone this repo, change the directory to the repo, install dependencies, then run the program in your browser leveraging a local server from your computer
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Final Notes
+I chose React as the library for this project because it provides the means to use reusable components and makes it easier to create, maintain, and passdown state to children
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+I chose Sass as the preprocessor for styling because it helps write clean code with it's use of nested styles
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Nice to Haves
+With more time I of course would have liked to have been able to create a backend for this app to allow the project to have a database to store these messages. Additionally I'd use multer to allow a user to upload an image for their profile. Lastly I would've like to have some Chatgpt implementation to give the user an option to have a chat partner that isn't themselves
