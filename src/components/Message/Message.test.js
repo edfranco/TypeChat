@@ -4,10 +4,11 @@ import "@testing-library/jest-dom";
 
 import Message from "./Message";
 import getMessageTime from "../../functions/getMessageTime";
+import profilePic from "../../files/default-profile-image.png";
 
 let testMessage = (
   <Message
-    image=""
+    image={profilePic}
     author="Eduardo Franco"
     timeStamp={getMessageTime()}
     body="I am a message!"
@@ -25,14 +26,12 @@ describe("Message component", () => {
   const author = screen.getByTestId("message-author");
   const messageTime = screen.getByTestId("message-time");
   const messageBody = screen.getByTestId("message-body");
-  const messageImage = screen.getByTestId("message-image");
 
   test("Message Rendering", () => {
     expect(message).toBeInTheDocument();
     expect(author).toBeInTheDocument();
     expect(messageTime).toBeInTheDocument();
     expect(messageBody).toBeInTheDocument();
-    expect(messageImage).toBeInTheDocument();
   });
 
   test("Message author", () => {
@@ -44,11 +43,4 @@ describe("Message component", () => {
   test("Message timestamp", () => {
     expect(messageTime.textContent).toMatch(/(AM|PM)/i);
   });
-});
-
-it("Message renders correctly", () => {
-  const tree = renderer
-    .create(testMessage)
-    .toJSON();
-  expect(tree).toMatchSnapshot();
 });

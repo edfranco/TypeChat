@@ -8,13 +8,15 @@ const getMessageTime = () => {
         minutes = `${0}${minutes}`
     }
 
+    console.log(hour)
+
     if(hour > '12') {
         hour = `${hour - 12}`;
         isAfternoon = true;
-    } else if (hour === '12') {
+    } else if (hour == '12') {
         hour = '12';
         isAfternoon = true;
-    } else if (hour === '00') {
+    } else if (hour == '0') {
         hour = '12';
         isAfternoon = false;
     } else {
